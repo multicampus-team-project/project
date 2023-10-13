@@ -1,4 +1,4 @@
-// 장르별 랭킹
+// 장르별 정보
 
 import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Button, Nav } from "react-bootstrap";
 
-export default function Carousel1() {
+export default function Carousel2() {
   const progressCircle = useRef(null);
   const progressContent = useRef(null);
   const onAutoplayTimeLeft = (s, time, progress) => {
@@ -18,21 +18,19 @@ export default function Carousel1() {
   };
 
   const [selectedGenre, setSelectedGenre] = useState("AAAA");
+  const [prfstate, setPrfstate] = useState("01");
   const [performances, setPerformances] = useState([]);
   const [noDataMessage, setNoDataMessage] = useState("");
 
-  const maxRank = 10;
-
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/boxoffice?catecode=${selectedGenre}`)
+      .get(`http://localhost:3001/api/data?shcate=${selectedGenre}&prfstate=${prfstate}`)
       .then((response) => {
-        const boxOfData = response.data.boxofs.boxof;
-        // 순위가 10 이하인 항목만 필터링
-        const filteredData = boxOfData.filter((performance) => performance.rnum <= maxRank);
-        setPerformances(filteredData);
-        if (filteredData.length === 0) {
+        setPerformances(response.data.dbs.db);
+        console.log(response.data.dbs.db.length);
+        if (response.data.dbs.db.length === 0) {
           setNoDataMessage("데이터가 없어요");
+          console.log(response.data.dbs.db.length);
         } else {
           setNoDataMessage("");
         }
@@ -41,15 +39,19 @@ export default function Carousel1() {
         console.error("API 에러:", error);
         setNoDataMessage("데이터를 불러오는 중에 오류가 발생했습니다");
       });
-  }, [selectedGenre]);
+  }, [selectedGenre, prfstate]);
 
   const handleGenreChange = (genre) => {
     setSelectedGenre(genre);
   };
 
+  const handleStateChange = (state) => {
+    setPrfstate(state);
+  };
+
   return (
     <>
-      <h1 className="title1">장르별 랭킹(일별)</h1>
+      <h1 className="title1">장르별 정보</h1>
       <Nav className="sliderTabs" variant="pills" defaultActiveKey="link-0">
         <Nav.Item>
           <Nav.Link eventKey="link-0" onClick={() => handleGenreChange("AAAA")}>
@@ -62,7 +64,7 @@ export default function Carousel1() {
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-2" onClick={() => handleGenreChange("BBBR")}>
+          <Nav.Link eventKey="link-2" onClick={() => handleGenreChange("BBBE")}>
             대중무용(클릭시 에러처리 아직 안했어요 클릭 ㄴㄴㄴㄴㄴ)
           </Nav.Link>
         </Nav.Item>
@@ -77,23 +79,34 @@ export default function Carousel1() {
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-5" onClick={() => handleGenreChange("CCCD")}>
+          <Nav.Link eventKey="link-4" onClick={() => handleGenreChange("CCCD")}>
             대중음악
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-6" onClick={() => handleGenreChange("EEEA")}>
+          <Nav.Link eventKey="link-4" onClick={() => handleGenreChange("EEEA")}>
             복합
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-7" onClick={() => handleGenreChange("EEEB")}>
+          <Nav.Link eventKey="link-4" onClick={() => handleGenreChange("EEEB")}>
             서커스/마술
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-8" onClick={() => handleGenreChange("GGGA")}>
+          <Nav.Link eventKey="link-4" onClick={() => handleGenreChange("GGGA")}>
             뮤지컬
+          </Nav.Link>
+        </Nav.Item>
+
+        <Nav.Item>
+          <Nav.Link eventKey="link-9" onClick={() => handleStateChange("01")}>
+            공연예정
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-10" onClick={() => handleStateChange("02")}>
+            공연중
           </Nav.Link>
         </Nav.Item>
       </Nav>
@@ -121,14 +134,14 @@ export default function Carousel1() {
                 <li>
                   <div className="movieBox">
                     <div className="posterBox">
-                      <p>{performance.cate}</p> {/* 장르 정보 출력 */}
-                      <p>순위 : {performance.rnum}</p>
+                      <p>{performance.genrenm}</p>
                       <img
-                        src={"http://www.kopis.or.kr" + performance.poster}
+                        src={performance.poster}
                         alt={performance.prfnm}
                         className="poster-image"
                         style={{ width: "300px", height: "400px" }}
                       />
+                      <div className=""></div>
                       <div className="hoverBox">
                         <Button variant="light">상세보기</Button>
                         <Button variant="danger">예매하기</Button>
@@ -136,8 +149,10 @@ export default function Carousel1() {
                     </div>
                     <div className="movieInfoBox">
                       <strong className="movieName">{performance.prfnm}</strong>
-                      <span>공연기간 : {performance.prfpd}</span>
-                      <span className="movieDate">{performance.prfpd}</span>
+                      <span>공연중인지?? {performance.prfstate}</span>
+                      <span className="movieDate">
+                        {performance.prfpd}~{performance.prfed}
+                      </span>
                     </div>
                   </div>
                 </li>
