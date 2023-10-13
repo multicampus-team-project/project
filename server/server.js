@@ -1,23 +1,61 @@
 const express = require("express");
-const bodyParser = require("body-parser");
+const axios = require("axios");
+const { parseString } = require("xml2js");
 const cors = require("cors");
 const app = express();
 const port = 3001;
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
-// 멤버 정보 가져오기 라우팅
-const memberRouter = require("./routes/member");
-app.use("/", memberRouter);
+// KOPIS API 요청 함수
+async function ParseAPI(shcate, prfstate) {
+  const apiKey = "bd2222103ca442c492dbbeb301af94ab";
+  // 서버에서 받은 shcate 값을 동적으로 API 주소에 추가
+  const apiUrl = `http://www.kopis.or.kr/openApi/restful/pblprfr?service=${apiKey}&stdate=20231012&eddate=20240301&cpage=1&rows=10&shcate=${shcate}&prfstate=${prfstate}`;
 
-// 회원가입 라우팅
-const signupRouter = require("./routes/signup");
-app.use("/", signupRouter);
+  const response = await axios.get(apiUrl);
+  const result = await parseXML(response.data);
 
-// 로그인 라우팅
-const loginRouter = require("./routes/login");
-app.use("/", loginRouter);
+  return result;
+}
+
+// XML 파싱 함수
+function parseXML(xmlData) {
+  return new Promise((resolve, reject) => {
+    parseString(xmlData, (err, result) => {
+      if (err) {
+        reject({ error: "파싱 에러" });
+      } else {
+        resolve(result);
+      }
+    });
+  });
+}
+
+// API 데이터 가져오는 엔드포인트
+app.get("/api/data", async (req, res) => {
+  const { shcate, prfstate } = req.query; // 클라이언트에서 shcate를 쿼리 파라미터로 전달
+
+  try {
+    const apiData = await ParseAPI(shcate, prfstate);
+    res.json(apiData);
+  } catch (error) {
+    res.status(500).json({ error: "API 연결 에러" });
+  }
+});
+
+// // 멤버 정보 가져오기 라우팅
+// const memberRouter = require("./routes/member");
+// app.use("/", memberRouter);
+
+// // 회원가입 라우팅
+// const signupRouter = require("./routes/signup");
+// app.use("/", signupRouter);
+
+// // 로그인 라우팅
+// const loginRouter = require("./routes/login");
+// app.use("/", loginRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
