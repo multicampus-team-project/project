@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Button, Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function Carousel1() {
   const progressCircle = useRef(null);
@@ -29,9 +30,10 @@ export default function Carousel1() {
       .then((response) => {
         const boxOfData = response.data.boxofs.boxof;
         // 순위가 10 이하인 항목만 필터링
-        const filteredData = boxOfData.filter((performance) => performance.rnum <= maxRank);
-        setPerformances(filteredData);
-        if (filteredData.length === 0) {
+        const filterData = boxOfData.filter((performance) => performance.rnum <= maxRank);
+        setPerformances(filterData);
+
+        if (filterData.length === 0) {
           setNoDataMessage("데이터가 없어요");
         } else {
           setNoDataMessage("");
@@ -117,31 +119,32 @@ export default function Carousel1() {
         {performances.map((performance) => {
           return (
             <SwiperSlide key={performance.mt20id}>
-              <ul className="slideWrap">
-                <li>
-                  <div className="movieBox">
-                    <div className="posterBox">
-                      <p>{performance.cate}</p> {/* 장르 정보 출력 */}
-                      <p>순위 : {performance.rnum}</p>
-                      <img
-                        src={"http://www.kopis.or.kr" + performance.poster}
-                        alt={performance.prfnm}
-                        className="poster-image"
-                        style={{ width: "300px", height: "400px" }}
-                      />
-                      <div className="hoverBox">
-                        <Button variant="light">상세보기</Button>
-                        <Button variant="danger">예매하기</Button>
+              <Link to={`/Reservation/${performance.mt20id}`}>
+                <ul className="slideWrap">
+                  <li>
+                    <div className="movieBox">
+                      <div className="posterBox">
+                        <p>{performance.cate}</p> {/* 장르 정보 출력 */}
+                        <p>순위 : {performance.rnum}</p>
+                        <img
+                          src={"http://www.kopis.or.kr" + performance.poster}
+                          alt={performance.prfnm}
+                          className="poster-image"
+                          style={{ width: "300px", height: "400px" }}
+                        />
+                        <div className="hoverBox">
+                          <Button variant="light">상세보기</Button>
+                          <Button variant="danger">예매하기</Button>
+                        </div>
+                      </div>
+                      <div className="movieInfoBox">
+                        <strong className="movieName">{performance.prfnm}</strong>
+                        <span className="movieDate">공연기간 : {performance.prfpd}</span>
                       </div>
                     </div>
-                    <div className="movieInfoBox">
-                      <strong className="movieName">{performance.prfnm}</strong>
-                      <span>공연기간 : {performance.prfpd}</span>
-                      <span className="movieDate">{performance.prfpd}</span>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </Link>
             </SwiperSlide>
           );
         })}
