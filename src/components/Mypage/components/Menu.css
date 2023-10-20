@@ -115,14 +115,12 @@ a:hover {
 tr {
   font-size: medium;
   border-bottom: 1px solid rgb(228, 226, 226);
-  border-top: 1px solid rgb(228, 226, 226);
-  /* background-color: blue; */
+  border-top: 1px solid rgb(228, 226, 226);  
 }
 
 td {
   padding: 10px;
-  margin: 0px auto;
-  /* background-color: green; */
+  margin: 0px auto;  
 }
 
 .row {
@@ -143,13 +141,12 @@ td {
   width: 30%;
 }
 
-.about {
+.RfAbout {
   margin: -5px 30px;
   padding: 5px;
   position: absolute;
   border-radius: 5px;
-  border-color: rgb(228, 226, 226);
-  background-color: white;
+  border-color: rgb(228, 226, 226);  
 }
 
 .textInp01 {
@@ -193,16 +190,17 @@ td {
   color: rgb(71, 90, 197);
 }
 
-.imgBtn {
+.RfBtn {
+  padding: 5px;
   margin: 10px;
   border-radius: 5px;
-  border-color: rgb(228, 226, 226);
+  border-color: rgb(228, 226, 226);  
 }
 
-.submitBtn {
+.RfSubmitBtn {
   float: right;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 5px;  
 }
 
 /* Notice.css */

@@ -42,7 +42,7 @@ function Reference() {
               <td>
                 <input type="text" className="textInp" id="ORDER_REFERENCE" readOnly></input>
                 <a>
-                  <button className="about">주문상품조회</button>
+                  <button className="RfAbout">주문상품조회</button>
                 </a>
               </td>
             </tr>
@@ -84,19 +84,19 @@ function Reference() {
                 <div className="fileBlock">
                   <input type="text" id="imageAdd1" readOnly className="img01"></input>
                   <a href="#">
-                    <button className="imgBtn">찾아보기</button>
+                    <button className="RfBtn">찾아보기</button>
                   </a>
                 </div>
                 <div className="fileBlock">
                   <input type="text" id="imageAdd2" readOnly className="img01"></input>
                   <a href="#">
-                    <button className="imgBtn">찾아보기</button>
+                    <button className="RfBtn">찾아보기</button>
                   </a>
                 </div>
                 <div className="fileBlock">
                   <input type="text" id="imageAdd3" readOnly className="img01"></input>
                   <a href="#">
-                    <button className="imgBtn">찾아보기</button>
+                    <button className="RfBtn">찾아보기</button>
                   </a>
                 </div>
                 <p className="imgImf">
@@ -109,8 +109,8 @@ function Reference() {
       </div>
       <div className="btnArea">
         <div>
-          <a className="submitBtn">
-            <button onClick={() => "완료되었습니다."}>문의하기</button>
+          <a className="RfSubmitBtn">
+            <button onClick={() => "완료되었습니다."} className="RfSubmitBtn">문의하기</button>
           </a>
         </div>
       </div>
