@@ -1,11 +1,12 @@
 import React from "react";
+import "./Menu.css";
 
-const Menu = () => {
+const Home = () => {
   return (
-    <>
-      <p>첫페이지</p>
-    </>
+    <div className="HomeHeader">
+      <p>Home</p>
+    </div>
   );
 };
 
-export default Menu;
+export default Home;

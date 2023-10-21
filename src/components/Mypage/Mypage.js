@@ -13,16 +13,21 @@ import Change from "./components/Change";
 import Notice from "./components/Notice";
 import Qs from "./components/Qs";
 import Reference from "./components/Reference";
+// import Header from "../Header"
+import Footer from "../Footer";
 
 function Mypage() {
   return (
+    <>
+    <div>
+      <Home /> 
+    </div>    
     <div className="box">
       <div className="box1">
         <Menu />
       </div>
       <div className="box2">
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/check" element={<Check />} />
           <Route path="/cancel" element={<Cancel />} />
           <Route path="/epilogue" element={<Epilogue />} />
@@ -35,6 +40,8 @@ function Mypage() {
         </Routes>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }
 

@@ -1,3 +1,16 @@
+
+/* Header.css */
+.HomeHeader {
+  position: relative;
+  display: flex;
+  float: top;
+  height: 20%;
+  margin: 10px auto;
+  padding: 10px 50px;
+  /* background-color: red; */
+}
+
+/* main.css */
 .box {
   position: relative;
   margin: 0 auto;
@@ -45,37 +58,37 @@
   padding-bottom: 100%;
 }
 
-.name {
+.MypageName {
   font-size: x-large;
   font-weight: bold;
   padding-bottom: 50px;
   border-bottom: 1px solid rgb(228, 226, 226);
 }
 
-.sub1 {
+.MypageSub1 {
   padding: 20px 0;
   border-bottom: 1px solid rgb(228, 226, 226);
 }
 
-.sub2 {
+.MypageSub2 {
   padding: 20px 0;
   border-bottom: 1px solid rgb(228, 226, 226);
 }
 
-.sub3 {
+.MypageSub3 {
   padding: 20px 0;
   border-bottom: 1px solid rgb(228, 226, 226);
 }
 
-ul {
+.MypageMenu > div > ul {
   list-style: none;
 }
 
-li {
+.MypageMenu > div > ul > li {
   padding: 8px 0;
 }
 
-.subBtn {
+.MyPageSubBtn {
   text-align: center;
   margin: 50px 0px;
   background-color: rgb(231, 184, 162);
@@ -84,7 +97,7 @@ li {
   border-radius: 5px;
 }
 
-.subBtn > p {
+.MyPageSubBtn > p {
   margin-top: 10px;
 }
 
@@ -104,26 +117,35 @@ a:hover {
 }
 
 .todo-item {
+  margin: 10px;
   float: left;
-  width: 100%;
+  width: 90%;
   height: 50px;
   border: 1px solid lightblue;
 }
 
+/* Check.css */
+.NavList {
+  text-align: center;
+  margin: 10px;
+  padding: 0 35px;
+  /* background-color: red; */
+}
+
 /* Reference.css */
 
-tr {
+.MypageRf > table > tbody> tr {
   font-size: medium;
   border-bottom: 1px solid rgb(228, 226, 226);
-  border-top: 1px solid rgb(228, 226, 226);  
+  border-top: 1px solid rgb(228, 226, 226);   
 }
 
-td {
+.MypageRf > table > tbody> tr > td {
   padding: 10px;
-  margin: 0px auto;  
+  margin: 0px auto; 
 }
 
-.row {
+.MypageRow {
   position: relative;
   padding: 30px 10px;
   margin: 0px auto;
