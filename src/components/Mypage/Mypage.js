@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./Mypage.css";
+import "./Mypage1.css";
 import { Routes, Route } from "react-router-dom";
 import Menu from "./components/Menu";
 import Check from "./components/Check";
