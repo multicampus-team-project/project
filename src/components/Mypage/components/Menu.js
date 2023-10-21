@@ -1,15 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Menu.css";
-// import Footer from "../../Footer";
-// import Header from "../../Header"
-// import"../../../App.js";
 
 const Menu = () => {
   return (
     <>
       <div className="MypageMenu">
-        <p className="MypageName">내정보</p>
+        <a className="MypageName">          
+          <Link to="/">Home</Link>
+        </a>        
         <div>
           <ul className="MypageSub1">
             <li>

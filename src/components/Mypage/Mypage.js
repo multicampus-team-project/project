@@ -2,7 +2,6 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Mypage.css";
 import { Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
 import Menu from "./components/Menu";
 import Check from "./components/Check";
 import Cancel from "./components/Cancel";
@@ -13,15 +12,11 @@ import Change from "./components/Change";
 import Notice from "./components/Notice";
 import Qs from "./components/Qs";
 import Reference from "./components/Reference";
-// import Header from "../Header"
 import Footer from "../Footer";
 
 function Mypage() {
   return (
     <>
-    <div>
-      <Home /> 
-    </div>    
     <div className="box">
       <div className="box1">
         <Menu />

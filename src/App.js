@@ -53,8 +53,7 @@ export default function App() {
         <Route path="/orderComplete" element={<OrderConfirmation />} />
         <Route path="*" element={<Error404 />} />
 
-        <Route path="/mypage" element={<Mypage />}>
-          <Route path="" element={<Home />} />
+        <Route path="/mypage" element={<Mypage />}>          
           <Route path="check" element={<Check />} />
           <Route path="cancel" element={<Cancel />} />
           <Route path="epilogue" element={<Epilogue />} />

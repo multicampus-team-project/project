@@ -1,13 +1,16 @@
 
 /* Header.css */
 .HomeHeader {
-  position: relative;
   display: flex;
-  float: top;
+  position: relative;   
+  float: left;
+  width: 80%;
   height: 20%;
-  margin: 10px auto;
-  padding: 10px 50px;
-  /* background-color: red; */
+  margin: 20px auto;
+  padding: 0 auto;
+  font-weight: bold;
+  font-size: large;
+  background-color: red;
 }
 
 /* main.css */
@@ -59,19 +62,19 @@
 }
 
 .MypageName {
-  font-size: x-large;
+  font-size: xx-large;
   font-weight: bold;
-  padding-bottom: 50px;
-  border-bottom: 1px solid rgb(228, 226, 226);
+  padding-bottom: 40px;
+  /* border-bottom: 1px solid rgb(228, 226, 226); */
 }
 
 .MypageSub1 {
-  padding: 20px 0;
+  padding: 40px 0;
   border-bottom: 1px solid rgb(228, 226, 226);
 }
 
 .MypageSub2 {
-  padding: 20px 0;
+  padding: 40px 0;
   border-bottom: 1px solid rgb(228, 226, 226);
 }
 
