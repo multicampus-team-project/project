@@ -29,8 +29,8 @@ function Mypage() {
           <Route path="/point" element={<Point />} />
           <Route path="/coupon" element={<Coupon />} />
           <Route path="/change" element={<Change />} />
-          <Route path="/notice" element={<Notice />} />
-          <Route path="/qs" element={<Qs />} />
+          {/* <Route path="/notice" element={<Notice />} />
+          <Route path="/qs" element={<Qs />} /> */}
           <Route path="/reference" element={<Reference />} />
         </Routes>
       </div>
