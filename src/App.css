@@ -34,23 +34,10 @@ body{font-family: 'Noto Sans', sans-serif;}
 #header:hover {
   background-color: white;
 }
-
-#header:hover .inner .nav-link {
-  color: var(--primary-color1);
-}
-
 #header:hover .inner #nav2 h1.logo a img {
   transition: none !important;
 }
 
-#header:hover .inner #nav2 .navbar>.container-fluid form input {
-  border-bottom: 1px solid var(--primary-color1);
-}
-
-#header:hover .inner #nav2 nav form button svg {
-  color: #bb2462;
-  --bs-btn-hover-color: gold;
-}
 
 #header:hover .inner #nav2 nav .container-fluid .navbar-toggler svg {
   color: var(--primary-color1);
@@ -79,7 +66,11 @@ body{font-family: 'Noto Sans', sans-serif;}
   color: var(--primary-color1);
   text-decoration: underline 1.3px solid var(--primary-color1);
 }
+#header .inner #nav2 nav form:hover button svg {color: var(--primary-color1);}
 
+#header .inner #nav2 nav form:hover input {color: var(--primary-color1);
+  border-bottom: 1px solid var(--primary-color1);
+}
 #header .inner #nav2 {
   display: flex;
   justify-content: space-between;

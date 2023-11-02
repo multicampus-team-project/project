@@ -73,11 +73,13 @@ function Login() {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-        margin: "10px",
+        // margin: "10px",
+        backgroundColor:'rgba(0,0,0,.3)'
       }}
     >
+      <video src="/login.mp4" type="video/mp4" muted autoPlay loop style={{position:'absolute',zIndex:'-1'}}></video>
       <Container
-        style={{ width: "350px", padding: "20px", borderRadius: "10px", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)" }}
+        style={{ width: "350px", padding: "20px", borderRadius: "10px", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", backgroundColor:'white' }}
       >
         <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
           <Link to="/">
