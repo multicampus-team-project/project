@@ -107,8 +107,8 @@
   letter-spacing: -0.25px;
   color: var(--primary-color1);
   margin-bottom: 25px;
+  /* -webkit-text-stroke: 3px var(--primary-color1); */
 }
-
 #landingCarouselBox .txtBox p {
   font-size: 24px;
   letter-spacing: -0.5px;

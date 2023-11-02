@@ -88,7 +88,7 @@ export default function Header() {
 
         <div id="nav2">
           <h1 className="logo">
-            <a href="/home" title="홈으로">
+            <a href="/" title="홈으로">
               <img src={logoSrc} alt="티켓1번가 로고" style={{ transition: "none" }} />
             </a>
           </h1>

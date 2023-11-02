@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, FreeMode, Thumbs } from "swiper/modules";
+import { EffectFade,Autoplay, FreeMode, Thumbs } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/thumbs";
+import 'swiper/css/effect-fade';
 
 export default function LandingCarousel() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -33,14 +34,15 @@ export default function LandingCarousel() {
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}
+        effect={'fade'}
         thumbs={{ swiper: thumbsSwiper }}
-        modules={[Autoplay, FreeMode, Thumbs]}
+        modules={[EffectFade,Autoplay, FreeMode, Thumbs]}
         className="mySwiper2"
       >
         {imageSrcList.map((src, i) => (
           <SwiperSlide key={i}>
             <div class="txtBox">
-              <strong><span>티켓1번가</span></strong>
+              <strong>티켓1번가</strong>
               <p><span>음악과 쇼의 황홀한 조화에 빠져보세요</span></p>
               <button onClick={()=>{
                 scrollTo()
