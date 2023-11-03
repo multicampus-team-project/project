@@ -1,0 +1,31 @@
+/* styles.css */
+.containerStyle {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.headingStyle {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.headStyle {
+  font-size: 36px;
+  font-weight: bold;
+  padding: 20px 0;
+}
+
+.listItemStyle {
+  list-style: disc;
+  margin: 10px 0;
+}
+
+.listInlistStyle {
+  list-style: decimal;
+  margin: 10px 0;
+}
+
+.paragraphStyle {
+  margin-bottom: 20px;
+}
