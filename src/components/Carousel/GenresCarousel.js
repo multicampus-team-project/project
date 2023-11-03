@@ -41,7 +41,7 @@ export default function GenresCarousel() {
   return (
     <div id="genresCarouselBox">
       <div className="mainInner">
-        <h1 className="title1">장르별 공연</h1>
+        <h1 className="title1">장르별 공연🎪</h1>
         <Nav className="sliderTabs" variant="pills" defaultActiveKey="link-0">
           <Nav.Item>
             <Nav.Link eventKey="link-0" onClick={() => handleGenreChange("AAAA")}>

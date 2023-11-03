@@ -27,7 +27,7 @@ export default function NewCarousel() {
   return (
     <div id="newCarouselBox">
       <div className="mainInner2">
-        <h1 className="title1">새로 오픈한 공연</h1>
+        <h1 className="title1">새로 오픈한 공연✨</h1>
         <Swiper
           slidesPerView={'auto'}
           spaceBetween={20}

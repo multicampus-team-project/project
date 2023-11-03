@@ -38,7 +38,7 @@ export default function RanksCarousel() {
   return (
     <div id="ranksCarouselBox">
       <div className="mainInner">
-        <h1 className="title1">공연차트</h1>
+        <h1 className="title1">공연차트🏆</h1>
         <Swiper
           slidesPerView={5}
           slidesPerGroup={5}

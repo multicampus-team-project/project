@@ -47,8 +47,8 @@
 }
 
 .movieBox .posterBox img {
-  width: 100%;
-  height: 280px !important;
+  width: 225px;
+  height: 300px !important;
   border-radius: 4px;
 }
 
@@ -264,10 +264,10 @@
 .scrollDownBox {
   z-index: 8;
   position: absolute;
-  top: 30%;
+  bottom: 10%;
   right: 0;
   width: 100px;
-  height: 100%;
+  height: 160px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -285,7 +285,7 @@
 
 .scrollDownBox .mouseDown {
   font-size: 22px;
-  border: 2px solid var(--primary-color1);
+  border: 3px solid var(--primary-color1);
   display: block;
   width: 20px;
   height: 30px;
@@ -302,9 +302,9 @@
 .scrollDownBox .mouseDown span {
   display: block;
   background-color: var(--primary-color1);
-  width: 3px;
-  height: 3px;
-  margin: 6px auto 0;
+  width: 4px;
+  height: 4px;
+  margin: 8px auto 0;
   border-radius: 0.4em;
 }
 
@@ -362,7 +362,7 @@
 
 /* 메인-순위캐러셀: */
 #ranksCarouselBox {
-  padding: 78px 2% 5%;
+  padding: 15dvh 2% 5%;
   width: 100%;
   height: 100%;
 }
@@ -375,7 +375,7 @@
   position: absolute;
   color: whitesmoke;
   font-weight: bold;
-  font-size: 38px;
+  font-size: 54px;
   left: 10%;
   bottom: 0;
 }
@@ -532,12 +532,49 @@
   overflow: hidden;
 }
 
+
+@media all and (min-width:1600px){ 
+  #ranksCarouselBox{padding: 15dvh 2% 5%;}
+} 
+
+@media all and (max-width:1599px) { 
+} 
+
+@media all and (max-width:1279px) { 
+} 
+
+/* 테블릿 가로 (해상도 768px ~ 1023px)*/ 
+@media all and (max-width:1023px) {
+  #landingCarouselBox .swiper.swiper-initialized.swiper-horizontal.mySwiper2.swiper-backface-hidden .swiper-wrapper img{height: 100dvh;}
+  #ranksCarouselBox,#genresCarouselBox,#newCarouselBox{padding: 74px 5% 10%;}
+  #wrap #container .swiper-wrapper{padding: 0 1%;}
+  #wrap #container .swiper-button-next,#wrap #container .swiper-button-prev{width: 35px !important;
+    height: 35px !important;}
+  #wrap #container .swiper-button-next:after,#wrap #container .swiper-button-prev:after{font-size: 12px !important;}
+  #wrap #container .mainInner h1.title1{font-size: 24px;}
+  #wrap #container .movieInfoBox,#wrap #container .movieBox .movieInfoBox strong.movieName,#wrap #container .movieBox .movieInfoBox span{width: 150px !important;}
+  #wrap #container .movieBox .posterBox img{
+    max-width: 150px !important;
+    height: 200px !important;}
+} 
+
+/* 모바일 가로 & 테블릿 세로 (해상도 480px ~ 767px)*/ 
+@media all and (max-width:767px) {
+  #ranksCarouselBox,#genresCarouselBox,#newCarouselBox{padding: 74px 5% 10% !important;}
+  #wrap #container .swiper-wrapper{padding: 0 1%;}
+  #wrap #container .mainInner h1.title1{font-size: 22px;}
+  #wrap #container .movieInfoBox,#wrap #container .movieBox .movieInfoBox strong.movieName,#wrap #container .movieBox .movieInfoBox span{width: 120px !important;}
+  #wrap #container .movieBox .posterBox img{
+    max-width: 120px !important;
+    height: 150px !important;}
+  #wrap #container .mainInner h1.title1{font-size: 24px;}
+} 
+
 /* 오픈 공연 캐러셀 NEW CAROUSEL CAROUSEL3: */
 #newCarouselBox {
   width: 100%;
   height: 100%;
-  padding: 50px 2% 8%;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(232, 232, 232, 0.37));
+  padding: 50px 2% 5%;
 }
 
 #newCarouselBox .mainInner2 {
@@ -558,7 +595,7 @@
   position: absolute;
   top: 3%;
   right: 3%;
-  font-size: 10px;
+  font-size: 14px;
   border-radius: 4px;
 }
 
@@ -567,8 +604,8 @@
   justify-content: center;
   align-items: center;
   border-bottom: 32px solid #f0f4f4;
-  margin-top: 40px;
-  padding: 28px 0;
+  margin-top: 28px;
+  padding-bottom: 4%;
 }
 
 .banners .banner {
@@ -728,7 +765,7 @@
 
 .movieBox .movieInfoBox strong {
   width: 210px;
-  font-size: 18px;
+  font-size: 20px;
   text-align: center;
   text-overflow: ellipsis;
   overflow: hidden;

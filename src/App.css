@@ -84,8 +84,8 @@ body{font-family: 'Noto Sans', sans-serif;}
 }
 
 #header .inner #nav2 h1.logo a img {
-  height: 60px;
-  transform: translateY(-2px);
+  height: 55px;
+  margin-top: 2%;
 }
 
 #header .inner #nav2 nav {
@@ -134,7 +134,7 @@ body{font-family: 'Noto Sans', sans-serif;}
   border-radius: 0;
 }
 
-#header .inner #nav2 form input {
+#header .inner #nav2 form input:focus {
   border-bottom: 1px solid white;
 }
 
@@ -367,6 +367,20 @@ body{font-family: 'Noto Sans', sans-serif;}
   width: 40px;
   border: none;
   display: none;
+}
+.toTopBtn:hover svg{
+  animation: upup 1s ease-out;
+}
+@keyframes upup {
+  0%{
+      top: 40%
+  }
+  50% {
+    top: 10%  
+  }
+  100% {
+    top: 25%;
+  }
 }
 .toTopBtn svg {
   position: absolute;
