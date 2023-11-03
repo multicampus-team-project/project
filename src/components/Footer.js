@@ -51,7 +51,7 @@ export default function Footer() {
           <a href="javascript:" className="icon1 icon--twitter">
             <FontAwesomeIcon icon="fa-brands fa-twitter" />
           </a>
-          <a href="javascript:" className="icon1 icon--linkedin">
+          <a href="javascript:" className="icon1 icon--youtube">
             <FontAwesomeIcon icon="fa-brands fa-youtube" />
           </a>
         </div>

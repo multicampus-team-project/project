@@ -3,7 +3,7 @@
 }
 
 #csWrap>.container {
-  min-height: 70vh;
+  min-height: 60vh;
   padding: 120px 0;
 }
 
@@ -31,6 +31,7 @@
 }
 
 #subHeader .inner {
+  width: 1280px;
   margin: 0 auto;
   padding: 0 1% 0 2%;
 }
@@ -328,9 +329,6 @@
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: var(--primary-color1);
 }
-
-.okModalBox {}
-
 .okModalBox.modal.show .modal-dialog {
   width: 480px;
 }
