@@ -41,7 +41,7 @@ export default function LandingCarousel() {
       >
         {imageSrcList.map((src, i) => (
           <SwiperSlide key={i}>
-            <div class="txtBox">
+            <div className="txtBox">
               <strong>티켓1번가</strong>
               <p><span>음악과 쇼의 황홀한 조화에 빠져보세요</span></p>
               <button onClick={()=>{

@@ -14,6 +14,7 @@
 }
 
 #csWrap a {
+  color: var(--primary-color1);
   text-decoration: none;
 }
 
@@ -56,7 +57,9 @@
 
 #subHeader .inner nav ul {
   height: 60px;
-}
+  display: flex;
+  align-items: center;
+  margin: 0;}
 
 #subHeader .inner nav ul li {
   padding: 5px 10px;

@@ -42,7 +42,7 @@ export default function SubHeader() {
             ) : (
               <>
                 <li>
-                  <Link to="/login" title="" className="on">
+                  <Link to="/login" title="">
                     로그인
                   </Link>
                 </li>
