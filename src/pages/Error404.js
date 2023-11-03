@@ -1,5 +1,5 @@
 import { gsap } from "gsap";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 export default function Error404() {
   const navigate = useNavigate();

@@ -131,7 +131,7 @@ export default function FAQ() {
           <Accordion.Body>
             <p>
               상단 메뉴의 <Link to="/mypage/check">예매확인</Link> 또는{" "}
-              <Link to="/mypage">마이페이지</Link>>
+              <Link to="/mypage">마이페이지</Link>
               <Link to="/mypage/check">예매내역</Link>에서 확인이 가능합니다.
             </p>
           </Accordion.Body>

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -9,13 +9,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 export default function NewCarousel() {
-  const progressCircle = useRef(null);
-  const progressContent = useRef(null);
-  const onAutoplayTimeLeft = (s, time, progress) => {
-    progressCircle.current.style.setProperty("--progress", 1 - progress);
-    progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
-  };
-
   const [performances, setPerformances] = useState([]);
 
   useEffect(() => {
@@ -36,8 +29,7 @@ export default function NewCarousel() {
       <div className="mainInner2">
         <h1 className="title1">새로 오픈한 공연</h1>
         <Swiper
-          slidesPerView={3}
-          slidesPerGroup={3}
+          slidesPerView={'auto'}
           spaceBetween={20}
           centeredSlides={false}
           autoplay={{
@@ -51,7 +43,7 @@ export default function NewCarousel() {
           loop={true}
           navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
-          onAutoplayTimeLeft={onAutoplayTimeLeft}
+          // onAutoplayTimeLeft={onAutoplayTimeLeft}
           className="mySwiper"
         >
           {performances.map((performance) => {
@@ -64,7 +56,6 @@ export default function NewCarousel() {
                       <Badge bg="warning">NEW</Badge>
                       <img
                         src={performance.poster}
-                        // src="https://picsum.photos/400/500?random=1"
                         alt="공연 포스터"
                       />
                       <div className="hoverBox">
@@ -82,12 +73,12 @@ export default function NewCarousel() {
               </SwiperSlide>
             );
           })}
-          <div className="autoplay-progress" slot="container-end">
+          {/* <div className="autoplay-progress" slot="container-end">
             <svg viewBox="0 0 48 48" ref={progressCircle}>
               <circle cx="24" cy="24" r="20"></circle>
             </svg>
             <span ref={progressContent}></span>
-          </div>
+          </div> */}
         </Swiper>
       </div>
     </div>

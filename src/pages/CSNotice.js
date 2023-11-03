@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import {CSBoardInfo} from '../util/CSBoardInfo.js';
 export default function Notice() {
   let navi=useNavigate();
-  const [boardInfo,setBoardInfo] = useState(CSBoardInfo);
+  const [boardInfo] = useState(CSBoardInfo);
   const naviListClick = (i) => {
     const data = {
       boardInfo: boardInfo[i]

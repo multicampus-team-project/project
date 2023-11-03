@@ -7,8 +7,6 @@ import GenresCarousel from "../components/Carousel/GenresCarousel.js";
 import ToTopBtn from '../components/ToTopBtn';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
 export default function Home() {
   return (
     <div id="wrap">
