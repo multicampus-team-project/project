@@ -1,0 +1,25 @@
+.SalesInfo {
+  text-align: left;
+}
+
+.ul-style,
+.ol-style,
+.li-style {
+  list-style-type: disc;
+}
+
+.SalesInfo table {
+  width: 70em;
+  height: 30em;
+  text-align: center;
+}
+.SalesInfo table tr {
+  border: 1px solid black;
+}
+.SalesInfo table th {
+  width: 10em;
+  background-color: gainsboro;
+}
+.SalesInfo table td {
+  width: 20em;
+}

@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import SubHeader from "../components/SubHeader";
+import Footer from "../components/Footer";
 
 const Reservation = () => {
   const { mt20id } = useParams();
