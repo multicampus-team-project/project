@@ -72,12 +72,12 @@ function Login() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "100vh",
+        height: "100dvh",
         // margin: "10px",
         backgroundColor:'rgba(0,0,0,.3)'
       }}
     >
-      <video src="/login.mp4" type="video/mp4" muted autoPlay loop style={{position:'absolute',zIndex:'-1'}}></video>
+      <video src="/login.mp4" type="video/mp4" muted autoPlay loop style={{position:'absolute',zIndex:'-1',height:'100dvh',width:'100dvw',objectFit:'cover'}}></video>
       <Container
         style={{ width: "350px", padding: "20px", borderRadius: "10px", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", backgroundColor:'white' }}
       >
@@ -125,7 +125,7 @@ function Login() {
 
         <div className="mt-3">
           <p className="mb-0 text-center">
-            티켓1번가 처음이신가요?
+            티켓1번가에 처음이신가요?
             <br />
             <Link to="/signup" className="text-primary fw-bold">
               회원가입
