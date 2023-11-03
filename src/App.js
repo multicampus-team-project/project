@@ -32,6 +32,8 @@ import CSNotice from "./pages/CSNotice";
 // 기타 페이지:
 import Error404 from "./pages/Error404.js";
 import Loading from "./components/Loading";
+import PrivacyPolicy from "./pages/PrivacyPolicy.js";
+import Terms from "./pages/Terms.js";
 
 export default function App() {
   let { id } = useParams();
@@ -89,6 +91,8 @@ export default function App() {
         </Route>
 
         <Route path="*" element={<Error404 />} />
+        <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<Terms />} />
       </Routes>
     </div>
   );
