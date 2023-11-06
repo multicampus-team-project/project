@@ -47,7 +47,7 @@ export const EmailModal = (props) => {
               value={isSend ? "완료" : "발송"}
               className="submitBtn btn btn--primary btn--inside uppercase"
               onClick={() => {
-                setIsSend(!isSend);
+                setIsSend(true);
               }}
             />
           </form>
