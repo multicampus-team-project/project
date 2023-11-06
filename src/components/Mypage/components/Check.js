@@ -73,40 +73,41 @@ function Check() {
         ) : (
           <p>예매내역이 없습니다.</p>
         )}
-
-        <table className="table-style">
-          <thead>
-            <tr>
-              <th className="th-style">예매 번호</th>
-              <th className="th-style">공연 제목</th>
-              <th className="th-style">공연 위치</th>
-              <th className="th-style">예매 일자</th>
-              <th className="th-style">공연 시간</th>
-              <th className="th-style">결제 가격</th>
-              <th className="th-style">예매 취소</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((reservation, index) => (
-              <tr key={index}>
-                <td className="td-style">{reservation.reservationNumber}</td>
-                <td className="td-style">
-                  <Link to={`/Reservation/${reservation.performanceId}`}>{reservation.performanceName}</Link>
-                </td>
-                <td className="td-style">{reservation.venue}</td>
-                <td className="td-style">{reservation.selectedDay}</td>
-                <td className="td-style">{reservation.selectedTime}</td>
-                <td className="td-style">{reservation.selectedPrice}</td>
-                <td className="td-style">
-                  <button className="bt-style" onClick={() => cancelReservation(reservation.reservationNumber)}>
-                    예매 <br />
-                    취소
-                  </button>
-                </td>
+        <div className="scroll-box">
+          <table className="table-style">
+            <thead>
+              <tr>
+                <th className="th-style">예매 번호</th>
+                <th className="th-style">공연 제목</th>
+                <th className="th-style">공연 위치</th>
+                <th className="th-style">예매 일자</th>
+                <th className="th-style">공연 시간</th>
+                <th className="th-style">결제 가격</th>
+                <th className="th-style">예매 취소</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {data.map((reservation, index) => (
+                <tr key={index}>
+                  <td className="td-style">{reservation.reservationNumber}</td>
+                  <td className="td-style">
+                    <Link to={`/Reservation/${reservation.performanceId}`}>{reservation.performanceName}</Link>
+                  </td>
+                  <td className="td-style">{reservation.venue}</td>
+                  <td className="td-style">{reservation.selectedDay}</td>
+                  <td className="td-style">{reservation.selectedTime}</td>
+                  <td className="td-style">{reservation.selectedPrice}</td>
+                  <td className="td-style">
+                    <button className="bt-style" onClick={() => cancelReservation(reservation.reservationNumber)}>
+                      예매 <br />
+                      취소
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );

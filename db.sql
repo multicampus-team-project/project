@@ -26,6 +26,22 @@ CREATE TABLE reservation (
     selectedTime TIME NOT NULL,
     selectedDay DATE NOT NULL,
     selectedPrice VARCHAR(20) NOT NULL,
+    performanceImg VARCHAR(255) NOT NULL,
+    PRIMARY KEY (reservationNumber),
+    FOREIGN KEY (memberId) REFERENCES member (memberId)
+);
+
+CREATE TABLE waitReservation (
+    reservationNumber VARCHAR(50) NOT NULL,
+    performanceId VARCHAR(50) NOT NULL,
+    memberId varchar(15) NOT NULL,
+    performanceName VARCHAR(255) NOT NULL,
+    runtime TIME NOT NULL,
+    venue VARCHAR(50) NOT NULL,
+    selectedTime TIME NOT NULL,
+    selectedDay DATE NOT NULL,
+    selectedPrice VARCHAR(20) NOT NULL,
+    performanceImg VARCHAR(255) NOT NULL,
     PRIMARY KEY (reservationNumber),
     FOREIGN KEY (memberId) REFERENCES member (memberId)
 );

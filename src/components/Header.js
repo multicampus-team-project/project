@@ -83,6 +83,11 @@ export default function Header() {
                 고객센터
               </Nav.Link>
             </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="/checkout" eventKey="link-2">
+                결제위젯
+              </Nav.Link>
+            </Nav.Item>
           </Nav>
         )}
 
@@ -121,7 +126,7 @@ export default function Header() {
                       }}
                     />
                     <Button variant="outline-success" onClick={handleSeacrh}>
-                    <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
+                      <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
                     </Button>
                   </Form>
                   <Nav className="justify-content-end flex-grow-1">

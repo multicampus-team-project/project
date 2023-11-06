@@ -1,6 +1,34 @@
 const express = require("express");
+const axios = require("axios");
 const router = express.Router();
 const db = require("./db");
+
+// router.get("/api/payment", async (req, res) => {
+//   const { amount, orderId, paymentKey } = req.query;
+//   const inputString = "test_sk_Z1aOwX7K8mvbynyRDbmq3yQxzvNP:";
+//   const buffer = Buffer.from(inputString, "utf8");
+//   const base64EncodedString = buffer.toString("base64");
+//   try {
+//     const response = await axios.post(
+//       "https://api.tosspayments.com/v1/payments/confirm",
+//       {
+//         amount,
+//         orderId,
+//         paymentKey,
+//       },
+//       {
+//         headers: {
+//           Authorization: `Basic ${base64EncodedString}`,
+//           "Content-Type": "application/json",
+//         },
+//       }
+//     );
+//     res.json(response.data);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: "Error processing the payment" });
+//   }
+// });
 
 router.post("/api/reservation", (req, res) => {
   const { reservationNumber, performanceData, selectedTime, selectedDay, selectedPrice, memberId } = req.body;
@@ -29,7 +57,7 @@ router.post("/api/reservation", (req, res) => {
   const formattedRuntime = parseRuntime(runtime);
 
   const sql =
-    "INSERT INTO reservation (reservationNumber, performanceId, memberId, performanceName, runtime, venue, selectedTime, selectedDay, selectedPrice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    "INSERT INTO waitReservation (reservationNumber, performanceId, memberId, performanceName, runtime, venue, selectedTime, selectedDay, selectedPrice , performanceImg) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
   const values = [
     reservationNumber,
     performanceData.mt20id, // 공연 번호
@@ -40,6 +68,7 @@ router.post("/api/reservation", (req, res) => {
     selectedTime, // 선택한 공연 시간
     formattedDay, // 선택한 공연 날짜
     selectedPrice[0], // 가격
+    performanceData.poster,
   ];
 
   db.query(sql, values, (err, results) => {
@@ -51,6 +80,68 @@ router.post("/api/reservation", (req, res) => {
       res.send("예약이 완료되었습니다.");
     }
   });
+});
+
+router.get("/api/payment", async (req, res) => {
+  const { amount, orderId, paymentKey } = req.query;
+  const inputString = "test_sk_Z1aOwX7K8mvbynyRDbmq3yQxzvNP:";
+  const buffer = Buffer.from(inputString, "utf8");
+  const base64EncodedString = buffer.toString("base64");
+
+  try {
+    const response = await axios.post(
+      "https://api.tosspayments.com/v1/payments/confirm",
+      {
+        amount,
+        orderId,
+        paymentKey,
+      },
+      {
+        headers: {
+          Authorization: `Basic ${base64EncodedString}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    // 성공 응답을 보냅니다.
+    res.json({ success: true, message: "성공 메시지" });
+  } catch (error) {
+    console.error("결제 승인 에러");
+    // 에러 응답을 보냅니다.
+    res.status(500).json({ success: false, message: "에러 메시지" });
+  }
+});
+
+router.post("/api/move-reservation", async (req, res) => {
+  const { orderId } = req.body;
+  console.log(orderId);
+  try {
+    // "waitReservation" 테이블에서 데이터를 "Reservation" 테이블로 복사
+    await db.execute(`
+      INSERT INTO reservation (reservationNumber, performanceId, memberId, performanceName, runtime, venue, selectedTime, selectedDay, selectedPrice, performanceImg)
+      SELECT reservationNumber, performanceId, memberId, performanceName, runtime, venue, selectedTime, selectedDay, selectedPrice, performanceImg
+      FROM waitReservation
+    `);
+
+    // "waitReservation" 테이블의 정보 삭제
+    await db.execute("DELETE FROM waitReservation");
+
+    // 복사된 데이터를 조회
+    db.query("SELECT * FROM reservation WHERE reservationNumber = ?", [orderId], (err, results) => {
+      if (err) {
+        console.error("Database error:", err);
+        res.status(500).json({ error: "Database error" });
+      }
+      const copiedData = results;
+      console.log(copiedData);
+
+      // 클라이언트로 복사된 데이터를 응답
+      res.json({ success: true, copiedData });
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Database error" });
+  }
 });
 
 // 예매 확인 페이지

@@ -44,7 +44,7 @@ const MyticketInfo = (props) => {
       .then((response) => {
         // 성공적으로 예약이 완료되면 이에 대한 처리를 수행
         // 예: 예약 완료 페이지로 이동
-        navigate("/orderComplete", { state: { performanceData, reservationNumber, selectedPrice, selectedSeat } });
+        navigate("/checkout", { state: { performanceData, reservationNumber, selectedPrice, selectedSeat } });
         console.log("예약 성공: ", response);
       })
       .catch((error) => {
