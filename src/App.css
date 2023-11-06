@@ -58,7 +58,7 @@ body{font-family: 'Noto Sans', sans-serif;}
   line-height: 40px;
   color: floralwhite;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 2.2px;
 }
 
@@ -125,7 +125,7 @@ body{font-family: 'Noto Sans', sans-serif;}
 
 #header .navbar>.container-fluid form {
   position: absolute;
-  right: 10%;
+  right: 200px;
 }
 
 #header .inner #nav2 form input {
