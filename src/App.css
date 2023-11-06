@@ -444,14 +444,16 @@ body{font-family: 'Noto Sans', sans-serif;}
   height: 100vh;
 }
 
-#orderCononfirmationWrap .container {
+#orderCononfirmationWrap>.container {
   border-radius: 13px;
   background: white;
   position: absolute;
-  top: 20%;
-  left: 35%;
-  width: 400px;
-  height: 500px;
+  top: 15%;
+  left: 45%;
+  width: 30dvw;
+  height: 70dvh;
+  max-width: 400px;
+  min-height: 500px;
   display: flex;
   flex-direction: column;
   padding: 2% 3%;
@@ -514,7 +516,7 @@ body{font-family: 'Noto Sans', sans-serif;}
 
 #orderCononfirmationWrap .container .top hr {
   border: 1px solid maroon;
-  width: 76%;
+  width: 90%;
   margin: 0 auto;
   padding: 0;
 }
@@ -743,7 +745,7 @@ body{font-family: 'Noto Sans', sans-serif;}
 #emailModalWrap .container {
   position: absolute;
   top: 40%;
-  left: 35%;
+  left: 48%;
   background-color: #fff;
   border-radius: 8px;
   width: 300px;
