@@ -11,10 +11,7 @@ export default function OrderConfirmation() {
     gsap.fromTo("#confirmationLoadingWrap", { opacity: 1 }, { opacity: 0.8, display: "none", duration: 1.5 });
   });
   const location = useLocation();
-  const performanceData = location.state.performanceData;
-  const reservationNumber = location.state.reservationNumber;
-  const selectedPrice = location.state.selectedPrice;
-  const selectedSeat = location.state.selectedSeat;
+  const copiedData = location.state.copiedData;
 
   return (
     <div id="orderCononfirmationWrap">
@@ -60,20 +57,24 @@ export default function OrderConfirmation() {
         <div className="bottom">
           <div className="orderReceipt">
             <div className="left">
-              <img style={{ width: "70px", height: "100px" }} src={performanceData.poster} alt="구매한 영화 포스터" />
+              <img
+                style={{ width: "70px", height: "100px" }}
+                src={copiedData.performanceImg}
+                alt="구매한 영화 포스터"
+              />
             </div>
             <div className="right">
               <p>
                 <span>예매번호: </span>
-                {reservationNumber}
+                {copiedData.reservationNumber}
               </p>
               <p>
                 <span>공연제목: </span>
-                {performanceData.prfnm}
+                {copiedData.performanceName}
               </p>
               <p>
                 <span>결제금액: </span>
-                {selectedPrice}원({selectedSeat})
+                {copiedData.selectedPrice}원
               </p>
             </div>
           </div>

@@ -40,26 +40,28 @@ function Cancel() {
           <p>예매 취소 내역이 없습니다.</p>
         )}
 
-        <table className="table-style">
-          <thead>
-            <tr>
-              <th className="th-style">예매취소 번호</th>
-              <th className="th-style">공연 제목</th>
-              <th className="th-style">환불 일자</th>
-              <th className="th-style">환불 가격</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((reservation, index) => (
-              <tr key={index}>
-                <td className="td-style">{reservation.refundNumber}</td>
-                <td className="td-style">{reservation.performanceName}</td>
-                <td className="td-style">{reservation.refundDate}</td>
-                <td className="td-style">{reservation.refundPrice}</td>
+        <div className="scroll-box">
+          <table className="table-style">
+            <thead>
+              <tr>
+                <th className="th-style">예매취소 번호</th>
+                <th className="th-style">공연 제목</th>
+                <th className="th-style">환불 일자</th>
+                <th className="th-style">환불 가격</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {data.map((reservation, index) => (
+                <tr key={index}>
+                  <td className="td-style">{reservation.refundNumber}</td>
+                  <td className="td-style">{reservation.performanceName}</td>
+                  <td className="td-style">{reservation.refundDate}</td>
+                  <td className="td-style">{reservation.refundPrice}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

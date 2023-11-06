@@ -35,6 +35,9 @@ import Loading from "./components/Loading";
 import PrivacyPolicy from "./pages/PrivacyPolicy.js";
 import Terms from "./pages/Terms.js";
 
+import { CheckoutPage } from "./ReservationInfo/TicketBuy/Checkout.tsx";
+import { SuccessPage } from "./ReservationInfo/TicketBuy/Success.tsx";
+
 export default function App() {
   let { id } = useParams();
   const [loading, setLoading] = useState(true);
@@ -93,6 +96,8 @@ export default function App() {
         <Route path="*" element={<Error404 />} />
         <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<Terms />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/success" element={<SuccessPage />} />
       </Routes>
     </div>
   );
