@@ -3,33 +3,6 @@ const axios = require("axios");
 const router = express.Router();
 const db = require("./db");
 
-// router.get("/api/payment", async (req, res) => {
-//   const { amount, orderId, paymentKey } = req.query;
-//   const inputString = "test_sk_Z1aOwX7K8mvbynyRDbmq3yQxzvNP:";
-//   const buffer = Buffer.from(inputString, "utf8");
-//   const base64EncodedString = buffer.toString("base64");
-//   try {
-//     const response = await axios.post(
-//       "https://api.tosspayments.com/v1/payments/confirm",
-//       {
-//         amount,
-//         orderId,
-//         paymentKey,
-//       },
-//       {
-//         headers: {
-//           Authorization: `Basic ${base64EncodedString}`,
-//           "Content-Type": "application/json",
-//         },
-//       }
-//     );
-//     res.json(response.data);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: "Error processing the payment" });
-//   }
-// });
-
 router.post("/api/reservation", (req, res) => {
   const { reservationNumber, performanceData, selectedTime, selectedDay, selectedPrice, memberId } = req.body;
 
@@ -84,7 +57,7 @@ router.post("/api/reservation", (req, res) => {
 
 router.get("/api/payment", async (req, res) => {
   const { amount, orderId, paymentKey } = req.query;
-  const inputString = "test_sk_Z1aOwX7K8mvbynyRDbmq3yQxzvNP:";
+  const inputString = process.env.TOSS_SECRET_KEY;
   const buffer = Buffer.from(inputString, "utf8");
   const base64EncodedString = buffer.toString("base64");
 
@@ -118,8 +91,10 @@ router.post("/api/move-reservation", async (req, res) => {
   try {
     // "waitReservation" 테이블에서 데이터를 "Reservation" 테이블로 복사
     await db.execute(`
-      INSERT INTO reservation (reservationNumber, performanceId, memberId, performanceName, runtime, venue, selectedTime, selectedDay, selectedPrice, performanceImg)
-      SELECT reservationNumber, performanceId, memberId, performanceName, runtime, venue, selectedTime, selectedDay, selectedPrice, performanceImg
+      INSERT INTO reservation 
+      (reservationNumber, performanceId, memberId, performanceName, runtime, venue, selectedTime, selectedDay, selectedPrice, performanceImg)
+      SELECT 
+      reservationNumber, performanceId, memberId, performanceName, runtime, venue, selectedTime, selectedDay, selectedPrice, performanceImg
       FROM waitReservation
     `);
 
@@ -127,7 +102,8 @@ router.post("/api/move-reservation", async (req, res) => {
     await db.execute("DELETE FROM waitReservation");
 
     // 복사된 데이터를 조회
-    db.query("SELECT * FROM reservation WHERE reservationNumber = ?", [orderId], (err, results) => {
+    const selectQuery = "SELECT * FROM reservation WHERE reservationNumber = ?";
+    db.query(selectQuery, [orderId], (err, results) => {
       if (err) {
         console.error("Database error:", err);
         res.status(500).json({ error: "Database error" });

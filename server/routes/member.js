@@ -89,7 +89,7 @@ router.post("/api/reset-pw", (req, res) => {
         service: "Gmail",
         auth: {
           user: "msj07199@gmail.com", // 보내는 이메일 주소
-          pass: "cxco hkfv yten wgpl", // 보내는 이메일 비밀번호(구글 앱 패스워드)
+          pass: process.env.GOOGLE_APP_PW, // 보내는 이메일 비밀번호(구글 앱 패스워드)
         },
       });
 

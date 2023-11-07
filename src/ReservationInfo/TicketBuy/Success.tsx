@@ -31,7 +31,7 @@ export function SuccessPage() {
         setData(false);
         console.error("결제 실패 에러:", error);
       });
-  }, [amount, orderId, paymentKey]); // 빈 배열을 전달하면 컴포넌트가 마운트될 때만 실행됩니다.
+  }, [amount, orderId, paymentKey]);
 
   const handlePaymentOK = () => {
     axios

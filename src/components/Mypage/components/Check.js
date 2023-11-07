@@ -56,6 +56,8 @@ function Check() {
       await axios.delete(
         `${process.env.REACT_APP_API_URL}/api/cancel-reservation?reservationNumber=${reservationNumber}`
       );
+      const updatedData = data.filter((reservation) => reservation.reservationNumber !== reservationNumber);
+      setData(updatedData);
     } catch (error) {
       console.error("예매 취소 중 오류가 발생했습니다.", error);
     }

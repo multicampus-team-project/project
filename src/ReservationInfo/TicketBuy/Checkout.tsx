@@ -72,7 +72,7 @@ export function CheckoutPage() {
       await paymentWidget?.requestPayment({
         orderId: `${reservationNumber}`,
         orderName: `${performanceName}`,
-        successUrl: `http://localhost:3000/success`,
+        successUrl: `${process.env.REACT_APP_URL}/success`,
         failUrl: `${window.location.origin}/fail`,
         customerEmail: "customer123@gmail.com",
         customerName: "김토스",
