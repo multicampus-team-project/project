@@ -6,8 +6,8 @@ export const EmailModal = (props) => {
     e.preventDefault();
     emailjs
       .sendForm(
-        "service_u6gr05c",
-        "template_ogelld9",
+        "service_bhavlfu",
+        "template_i6h9gza",
         form.current,
         "Sqm8Zts8w1gIAbnyZ"
       )
