@@ -7,7 +7,7 @@ export const EmailModal = (props) => {
     emailjs
       .sendForm(
         "service_bhavlfu",
-        "template_i6h9gza",
+        "template_5xcgkmx",
         form.current,
         "Sqm8Zts8w1gIAbnyZ"
       )
