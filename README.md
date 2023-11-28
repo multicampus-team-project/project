@@ -5,7 +5,7 @@
 ### 1조 소개
 #### 김용수, 문성주, 권민영, 최혜진
 
-메인화면
+## 메인화면
 ![image](https://github.com/multicampus-team-project/project/assets/84662018/842c4b94-cc0c-4e29-b735-124de93bdf28)
 
 
