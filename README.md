@@ -8,7 +8,7 @@
 
 ![image](https://github.com/multicampus-team-project/project/assets/84662018/842c4b94-cc0c-4e29-b735-124de93bdf28)
 
-<img src="https://github.com/multicampus-team-project/project/assets/84662018/842c4b94-cc0c-4e29-b735-124de93bdf28" width="200" height="400"/>
+<img src="https://github.com/multicampus-team-project/project/assets/84662018/842c4b94-cc0c-4e29-b735-124de93bdf28" width="400" height="600"/>
 
 
 ![image](https://github.com/multicampus-team-project/project/assets/84662018/f4bdc969-1e71-4466-93d1-87dff1d26e54)
